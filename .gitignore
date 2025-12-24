@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+*.ipynb_checkpoints
+*.ipynb
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Streamlit stuff
+.streamlit/secrets.toml
+
+# OS files
+.DS_Store
+
+# Testing Files
+weather_app.py
+weather_tool.py

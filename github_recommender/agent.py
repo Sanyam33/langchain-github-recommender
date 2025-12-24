@@ -5,7 +5,7 @@ from langchain.agents import create_agent
 import os
 
 load_dotenv(find_dotenv())
-GROQ_API_KEY = os.environ["GROQ_API_KEY"]
+GROQ_API_KEY = os.environ["GROQ_API_KEY"] # can also use model qwen/qwen3-32b
 
 model = ChatGroq(model_name="openai/gpt-oss-20b")
 
@@ -15,7 +15,7 @@ from collections import Counter
 @tool
 def get_user_repo_data(user: str) -> str:
     """Fetches the list of public repositories for specific Github username to analyze their coding interests."""
-    
+     
     query_params={
         "type": "owner",
         "sort": "updated",
@@ -38,7 +38,7 @@ def get_user_repo_data(user: str) -> str:
     
     top_langs = Counter(languages).most_common(5)
 
-    # Return simple string to the LLM
+    # alwyas return simple string to the LLM for analysis
     return ", ".join([lang for lang, count in top_langs])
 
 
@@ -54,7 +54,7 @@ def search_projects(projects: list) -> str:
     
     query_params={
         "q": query_string,
-        "sort": "updated",  #'stars', 'created', 'updated', 'forks', 'help-wanted-issues'
+        "sort": "updated",
         "per_page": 5,
         "type": "public"
     }

@@ -1,5 +1,5 @@
 import streamlit as st
-from github_suggestion_tool import agent
+from agent import agent
 
 
 st.title("Find Open Source Projects")
